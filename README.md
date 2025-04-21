@@ -36,7 +36,7 @@ The calendar application is built with a modular component structure:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/test-calendar.git
+   git clone https://github.com/r0leksii/test-calendar.git
    cd test-calendar
    ```
 
