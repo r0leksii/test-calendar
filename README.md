@@ -1,36 +1,159 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Test Calendar
+
+A modern, responsive date and time range picker built with Next.js, React, and Tailwind CSS. This application allows users to select date ranges and time slots with an intuitive interface.
+
+![Test Calendar Screenshot](https://via.placeholder.com/800x400?text=Test+Calendar+Screenshot)
+
+## Features
+
+- **Date Range Selection**: Select start and end dates with an intuitive calendar interface
+- **Time Range Selection**: Choose start and time end times for your selected dates
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Locale Support**: Automatically adapts to the user's locale for weekday names and first day of week
+- **Month and Year Navigation**: Easily navigate between months and years
+- **Modern UI**: Clean, accessible interface built with Tailwind CSS
+
+## Component Architecture
+
+The calendar application is built with a modular component structure:
+
+- `CalendarDateTimePicker`: Main component that orchestrates the date-time selection experience
+- `CalendarGrid`: Displays the days of the month and handles date selection
+- `CalendarNavigation`: Controls for navigating between months and years
+- `DateRangeDisplay`: Shows the currently selected date range
+- `TimePicker`: Interface for selecting start and end times
+- `RangeSummary`: Displays a summary of the selected date and time range
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18.18.0 or later
+- npm, yarn, pnpm, or bun
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/test-calendar.git
+   cd test-calendar
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   # or
+   pnpm install
+   # or
+   bun install
+   ```
+
+3. Run the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   # or
+   pnpm dev
+   # or
+   bun dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
+
+## Usage
+
+### Basic Usage
+
+The calendar component can be used as follows:
+
+```tsx
+import CalendarDateTimePicker from './components/calendar-date-time-picker'
+
+export default function MyPage() {
+  return (
+    <div className="container mx-auto p-4">
+      <CalendarDateTimePicker />
+    </div>
+  )
+}
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Props
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The `CalendarDateTimePicker` component accepts the following props:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Prop               | Type                                                 | Default                              | Description                          |
+| ------------------ | ---------------------------------------------------- | ------------------------------------ | ------------------------------------ |
+| `initialDateRange` | `{ startDate: Date \| null, endDate: Date \| null }` | `{ startDate: null, endDate: null }` | Initial date range selection         |
+| `initialStartTime` | `string`                                             | `'09:00'`                            | Initial start time in 24-hour format |
+| `initialEndTime`   | `string`                                             | `'17:00'`                            | Initial end time in 24-hour format   |
+| `onChange`         | `(dateRange, startTime, endTime) => void`            | `undefined`                          | Callback when selection changes      |
 
-## Learn More
+## Development
 
-To learn more about Next.js, take a look at the following resources:
+### Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/
+├── components/
+│   └── calendar-date-time-picker/
+│       ├── components/           # UI components
+│       ├── hooks/                # Custom React hooks
+│       ├── state/                # State management
+│       ├── utils/                # Utility functions
+│       ├── types.ts              # TypeScript types
+│       └── index.tsx             # Main component
+├── globals.css                   # Global styles
+├── layout.tsx                    # Root layout
+└── page.tsx                      # Home page
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Technologies Used
 
-## Deploy on Vercel
+- **Next.js 15**: React framework with App Router
+- **React 19**: UI library
+- **TypeScript**: Type-safe JavaScript
+- **Tailwind CSS**: Utility-first CSS framework
+- **Lucide React**: Icon library
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Building for Production
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To build the application for production:
+
+```bash
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun build
+```
+
+Then, you can start the production server:
+
+```bash
+npm run start
+# or
+yarn start
+# or
+pnpm start
+# or
+bun start
+```
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [Next.js](https://nextjs.org) - The React Framework
+- [Tailwind CSS](https://tailwindcss.com) - Utility-first CSS framework
+- [Lucide Icons](https://lucide.dev) - Beautiful & consistent icons

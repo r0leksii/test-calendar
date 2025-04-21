@@ -1,4 +1,4 @@
-import CalendarDateTimePicker from './components/calendar-date-time-picker-enhanced'
+import CalendarDateTimePicker from './components/calendar-date-time-picker'
 
 export default function Home() {
   return (
