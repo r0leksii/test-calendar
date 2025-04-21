@@ -39,7 +39,7 @@ export function useCalendarState({
   // Memoize constants to prevent recreation on each render
   const currentYear = useMemo(() => new Date().getFullYear(), [])
 
-  // Generate array of years - memoized
+  // Generate an array of years - memoized
   const years = useMemo(() => {
     const startYear = currentYear - 55
     const endYear = currentYear + 5
@@ -75,7 +75,7 @@ export function useCalendarState({
     dispatch({ type: 'SELECT_DATE', payload: date })
   }, [])
 
-  // Notify parent component when date range or times change
+  // Notify a parent component when date range or times change
   useEffect(() => {
     if (onChange) {
       onChange(state.dateRange, state.startTime, state.endTime)

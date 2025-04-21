@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo } from 'react'
+import {ReactNode, useMemo} from 'react'
 import { DateRange } from '../types'
 import { getDaysInMonth, getFirstDayOfMonth } from '../utils/date-utils'
 
@@ -26,7 +26,7 @@ export function CalendarGrid({
       currentMonth,
       firstDayOfWeek
     )
-    const days: React.ReactNode[] = []
+    const days: ReactNode[] = []
     const today = new Date()
     today.setHours(0, 0, 0, 0) // Normalize today for comparison
 
