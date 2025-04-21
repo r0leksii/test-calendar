@@ -122,6 +122,44 @@ app/
 - **Tailwind CSS**: Utility-first CSS framework
 - **Lucide React**: Icon library
 
+## Performance Optimization
+
+### State Management with useReducer
+
+The calendar application uses React's `useReducer` hook for efficient state management, which offers several performance benefits:
+
+- **Centralized State Logic**: All state transitions are managed in a single reducer function, making the code more maintainable and easier to debug.
+- **Predictable State Updates**: The reducer pattern ensures that state updates are predictable and follow a consistent pattern.
+- **Optimized Rendering**: By using `useReducer` instead of multiple `useState` hooks, we reduce the number of re-renders and improve performance.
+- **Complex State Dependencies**: The calendar's state has many interdependencies (date selection affects time selection, etc.), which are easier to manage with a reducer.
+
+```tsx
+// Example of our reducer pattern
+const [state, dispatch] = useReducer(
+  calendarReducer,
+  createInitialState(initialDateRange, initialStartTime, initialEndTime)
+)
+
+// Dispatching actions
+dispatch({ type: 'SELECT_DATE', payload: date })
+```
+
+### Memoization Techniques
+
+The application uses several memoization techniques to prevent unnecessary re-renders:
+
+- **useMemo**: For expensive calculations like generating the calendar grid
+- **useCallback**: For event handlers to maintain referential equality between renders
+- **Selective Rendering**: Components only re-render when their specific props change
+
+### Locale Optimization
+
+The calendar adapts to the user's locale settings while maintaining performance:
+
+- **Lazy Initialization**: Locale settings are initialized only once on component mount
+- **Cached Formatters**: Date formatters are created once and reused
+- **Efficient Date Calculations**: Optimized algorithms for calculating first day of week and weekday names
+
 ## Building for Production
 
 To build the application for production:
