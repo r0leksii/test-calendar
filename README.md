@@ -2,7 +2,7 @@
 
 A modern, responsive date and time range picker built with Next.js, React, and Tailwind CSS. This application allows users to select date ranges and time slots with an intuitive interface.
 
-![Test Calendar Screenshot](/Screenshot.jpeg)
+![Test Calendar Screenshot](/public/Screenshot.jpeg)
 
 ## Features
 
