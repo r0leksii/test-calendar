@@ -1,12 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Ensure font variables are accessible even if class names aren't applied */
+  --font-geist-sans: 'Geist', Arial, sans-serif;
+  --font-geist-mono: 'Geist Mono', monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    /* Keep font variables consistent in dark mode */
+    --font-geist-sans: 'Geist', Arial, sans-serif;
+    --font-geist-mono: 'Geist Mono', monospace;
   }
 }
 
@@ -17,9 +27,9 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /*color: var(--foreground);*/
+  /*background: var(--background);*/
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -35,8 +45,8 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
+/*@media (prefers-color-scheme: dark) {*/
+/*  html {*/
+/*    color-scheme: dark;*/
+/*  }*/
+/*}*/
